@@ -29,7 +29,7 @@ class landprice:
         self.q[1]=self.q[1]-rate*(np.sum(val-self.y)*(self.x[0][1]+self.x[1][1]+self.x[2][1]+self.x[3][1]+self.x[4][1]))
         self.q[2]=self.q[2]-rate*(np.sum(val-self.y)*(self.x[0][2]+self.x[1][2]+self.x[2][2]+self.x[3][2]+self.x[4][2]))
     def plot_best_fit(self, value,testing, fig):
-        f = plt.figure(fig)
+        f = plt.figure(fig) 
         plt.plot(testing,self.y, color='b')
         plt.plot(testing, value, color='g')
         f.show()
@@ -40,9 +40,10 @@ x=np.array([1,100,4,1,150,6,1,100,1,1,200,2,1,120,1])
 x=np.resize(x,(5,3))
 obj=landprice(x,y)
 print(obj.predict())
-for i in range(100):
+for i in range(250):
     obj.updatevalues(rate)
+obj.calculateJq()
 print(obj.y)
 print(obj.predict())
-obj.plot_best_fit(obj.predict(),np.array([1,2,3,4,5]),"this is the result")
+# obj.plot_best_fit(obj.predict(),np.array([1,2,3,4,5]),"this is the result")
 
