@@ -65,6 +65,8 @@ class decision():
         return parent-child_entropy
     
     def split(self,col,threshold):
+
+        # here number is spliting by threshold
         left_indx=np.argwhere(col<=threshold).flatten()
         right_indx=np.argwhere(col>threshold).flatten()
         return left_indx,right_indx
